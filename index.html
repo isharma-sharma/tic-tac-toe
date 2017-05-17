@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-          <div id ="game-board" class ="container">
-          <fieldset>
-            <div class="row">
-                    <div class="col-xs-4 col-md-4 box cellheight cell1">X </div>
-                    <div class="col-xs-4 col-md-4 box cellheight cell2">0</div>
-                    <div class="col-xs-4 col-md-4 box cellheight cell3">x</div>
-                </div>
-                  <div class="row">
-                    <div class="col-xs-4 col-md-4 box cellheight cell4">0</div>
-                    <div class="col-xs-4 col-md-4 box cellheight cell5">x</div>
-                    <div class="col-xs-4 col-md-4 box cellheight cell6">x</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-4 col-md-4 box cellheight cell7">x</div>
-                    <div class="col-xs-4 col-md-4 box cellheight cell8">0</div>
-                    <div class="col-xs-4 col-md-4 box cellheight cell9">x</div>
-                  </div>
-                </div>
-    </fieldset>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-    </body>
+<body class="container-tic-tac-toe">
+
+  <form id="sign-up">
+    <label>Sign up!</label>
+    <label>Email</label>
+    <input type="text" name="credentials[email]" value="">
+    <label>password</label>
+    <input type="password" name="credentials[password]" value="">
+    <label>password confirmation  </label>
+    <input type="password" name="credentials[password_confirmation]" value="">
+    <input type="submit" name="submit" value="Sign up!">
+  </form>
+
+  <form id="sign-in">
+    <label>Sign in!</label>
+    <label>Email</label>
+    <input type="text" name="credentials[email]" value="">
+    <label>password</label>
+    <input type="password" name="credentials[password]" value="">
+      <input type="submit" name="submit" value="Sign in!">
+  </form>
+  <form id="change-password">
+    <label>Change Pasword!</label>
+    <input type="password" name="passwords[old]" value="">
+    <label>password</label>
+    <input type="password" name="passwords[new]" value="">
+      <input type="submit" name="submit" value="changePassword">
+  </form>
+
+  <body class="container-fluid">
+    <form id="game-board">
+      <fieldset>
+        <div class="row">
+        <div class="col-xs-4 col-md-4 box cellheight cell1">X<p></p></div>
+        <div class="col-xs-4 col-md-4 box cellheight cell2">0<p></p></div>
+        <div class="col-xs-4 col-md-4 box cellheight cell3">x</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-md-4 box cellheight cell4">0</div>
+          <div class="col-xs-4 col-md-4 box cellheight cell5">x</div>
+          <div class="col-xs-4 col-md-4 box cellheight cell6">x</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-md-4 box cellheight cell7">x</div>
+          <div class="col-xs-4 col-md-4 box cellheight cell8">0</div>
+          <div class="col-xs-4 col-md-4 box cellheight cell9">x</div>
+        </div>
+        </div>
+        </div>
+
 </html>
