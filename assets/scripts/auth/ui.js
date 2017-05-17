@@ -21,20 +21,50 @@ const ChangepasswordSuccess = (data) => {
 const ChangepasswordFailure = (error) => {
   console.error(error)
 }
-/*const SignOutSuccess = (data) => {
+
+const createGameSuccess = (data) => {
   console.log(data)
 }
 
-const SignOutFailure = (error) => {
+const createGamefailure = (error) => {
   console.error(error)
-}*/
+}
+const getGameSuccess = (data) => {
+  console.log(data)
+}
+
+const getGameFailure = (error) => {
+  console.error(error)
+}
+
+const showGameSuccess = (data) => {
+  console.log(data)
+}
+
+const showGameFailure = (error) => {
+  console.error(error)
+}
+
+// const SignOutSuccess = (data) => {
+//   console.log(data)
+// }
+//
+// const SignOutFailure = (error) => {
+//   console.error(error)
+// }
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   ChangepasswordSuccess,
-  ChangepasswordFailure
-  //SignOutSuccess,
-  //SignOutFailure
+  ChangepasswordFailure,
+  createGameSuccess,
+  createGamefailure,
+  getGameSuccess,
+  getGameFailure,
+  showGameSuccess,
+  showGameFailure
+  // SignOutSuccess,
+  // SignOutFailure
 }
