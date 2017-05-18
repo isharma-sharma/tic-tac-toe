@@ -37,15 +37,15 @@ const onCreateGame = function (event) {
 }
 const onGetGamesForUser = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.getGamesForUser(data)
+  //const data = getFormFields(event.target)
+  api.getGamesForUser()
     .then(ui.getGameSuccess)
     .catch(ui.getGameFailure)
 }
 const onShowGamesForUser = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.showGame(data)
+  //const data = getFormFields(event.target)
+  api.showGame()
     .then(ui.showGameSuccess)
     .catch(ui.showGameFailure)
 }
@@ -61,27 +61,27 @@ const onShowGamesForUser = function (event) {
 //     .then(ui.signOutSuccess)
 //     .catch(ui.signOutFailure)
 // }
-const onGameUpdate = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api.showGame(data)
-    .then(ui.showGameSuccess)
-    .catch(ui.showGameFailure)
-}
- // const onUdateGame = function (index, value, over) {
+// const onGameUpdate = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.showGame(data)
+//     .then(ui.showGameSuccess)
+//     .catch(ui.showGameFailure)
+// }
+ //  const onUdateGame = function (index, value, over) {
  //  api.updateGame(index, value, over)
- //    .then(ui.success)
- //    .catch(ui.failure)
- //
- // }
+ // //    .then(ui.success)
+ // //    .catch(ui.failure)
+ // //
+ // // }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#game-board').on('submit', onCreateGame)
-  $('#click-play').on('submit', onGetGamesForUser)
-  $('#click-play').on('submit', onShowGamesForUser)
+  $('#get-all-game').on('submit', onGetGamesForUser)
+  $('#show-game-id').on('submit', onShowGamesForUser)
   //  $('#sign-out').on('submit', onSignOut)
 }
 

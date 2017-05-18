@@ -64,7 +64,7 @@ const createGame = function () {
 }
 const getGamesForUser = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games/',
+    url: config.apiOrigin + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.userToken
@@ -72,6 +72,7 @@ const getGamesForUser = function () {
   })
 }
 const showGame = function () {
+  console.log(store.gameId)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameId,
     method: 'GET',
