@@ -42,10 +42,10 @@ const onGetGamesForUser = function (event) {
     .then(ui.getGameSuccess)
     .catch(ui.getGameFailure)
 }
-const onShowGamesForUser = function (event) {
+const onShowGamesForUser = function(event) {
   event.preventDefault()
-  //const data = getFormFields(event.target)
-  api.showGame()
+  const data = getFormFields(event.target)
+  api.showGame(data)
     .then(ui.showGameSuccess)
     .catch(ui.showGameFailure)
 }
@@ -68,12 +68,46 @@ const onShowGamesForUser = function (event) {
 //     .then(ui.showGameSuccess)
 //     .catch(ui.showGameFailure)
 // }
- //  const onUdateGame = function (index, value, over) {
- //  api.updateGame(index, value, over)
- // //    .then(ui.success)
- // //    .catch(ui.failure)
- // //
- // // }
+// let i = 0
+// if (store.gameArray[i] % 2 === 0) {
+//   store.player = 'x'
+// } else {
+//   i++
+// }
+
+const gameOver = function () {
+  if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
+    store.over = true
+  } else if (store.gameArray[0] + store.gameArray[4] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'xxx' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'xxx') {
+    store.over = true
+  } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'ooo' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'ooo') {
+    store.over = true
+  } else if (store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'ooo' || store.gameArray[0] && store.gameArray[4] && store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'ooo' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'ooo') {
+    store.over = true
+  } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'oox' || store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xox' || store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'oxo') {
+    store.over = true
+  } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxo') {
+    store.over = true
+  }
+}
+let index
+let over
+
+const onUdateGame = function (event) {
+  event.preventDefault()
+
+  let value
+  if (store.player === 'x') {
+    value = 'x'
+  } else {
+    value = 'o'
+  }
+
+  $(event.target).text(value)
+  api.updateGame(index, value, over)
+    .then(ui.updateGamesuccess)
+    .catch(ui.updateGamefailure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -82,6 +116,7 @@ const addHandlers = () => {
   $('#game-board').on('submit', onCreateGame)
   $('#get-all-game').on('submit', onGetGamesForUser)
   $('#show-game-id').on('submit', onShowGamesForUser)
+  $('.box').on('click', onUdateGame)
   //  $('#sign-out').on('submit', onSignOut)
 }
 

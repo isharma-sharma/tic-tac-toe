@@ -84,7 +84,7 @@ const showGame = function () {
 
 const updateGame = function (index, value, over) {
   return $.ajax({
-    url: config.host + '/games/' + store.gameId,
+    url: config.apiOrigin + '/games/' + store.gameId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.userToken

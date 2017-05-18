@@ -1,5 +1,5 @@
 'use strict'
-
+const store = require('../store')
 const signUpSuccess = (data) => {
   console.log(data)
 }
@@ -44,7 +44,16 @@ const showGameSuccess = (data) => {
 const showGameFailure = (error) => {
   console.error(error)
 }
-
+const updateGamesuccess = (data) => {
+  if (store.player === 'x') {
+    store.player = 'o'}
+  else {
+    store.player = 'x'
+  }
+}
+const updateGameFailure = (error) => {
+  console.error(error)
+}
 // const SignOutSuccess = (data) => {
 //   console.log(data)
 // }
@@ -52,6 +61,7 @@ const showGameFailure = (error) => {
 // const SignOutFailure = (error) => {
 //   console.error(error)
 // }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -64,7 +74,9 @@ module.exports = {
   getGameSuccess,
   getGameFailure,
   showGameSuccess,
-  showGameFailure
+  showGameFailure,
+  updateGamesuccess,
+  updateGameFailure
   // SignOutSuccess,
   // SignOutFailure
 }
