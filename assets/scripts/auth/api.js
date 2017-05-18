@@ -83,6 +83,7 @@ const showGame = function () {
 }
 
 const updateGame = function (index, value, over) {
+  console.log('inside updateGame')
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameId,
     method: 'PATCH',
@@ -99,7 +100,28 @@ const updateGame = function (index, value, over) {
       }
     }
   })
+  .then((response) => {
+    console.log(response)
+  })
 }
+// const updateGameBoard = function (index, value, over) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/games/' + store.gameId,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.userToken
+//     },
+//     data: {
+//       'game': {
+//         'cell': {
+//           'index': index,
+//           'value': value
+//         },
+//         'over': over
+//       }
+//     }
+//   })
+// }
 module.exports = {
   signUp,
   signIn,
@@ -108,5 +130,6 @@ module.exports = {
   getGamesForUser,
   showGame,
   updateGame
-  // signOut
+  // updateGameBoard
+  //signOut
 }

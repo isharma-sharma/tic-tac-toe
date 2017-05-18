@@ -5,7 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-const onSignUp = function (event) {
+const onSignUp = function(event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)
@@ -13,7 +13,7 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = function (event) {
+const onSignIn = function(event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
@@ -22,20 +22,20 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
-const onChangePassword = function (event) {
+const onChangePassword = function(event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-const onCreateGame = function (event) {
+const onCreateGame = function(event) {
   event.preventDefault()
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGamefailure)
 }
-const onGetGamesForUser = function (event) {
+const onGetGamesForUser = function(event) {
   event.preventDefault()
   //const data = getFormFields(event.target)
   api.getGamesForUser()
@@ -75,9 +75,10 @@ const onShowGamesForUser = function(event) {
 //   i++
 // }
 
-const gameOver = function () {
+const winner = function () {
   if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
     store.over = true
+    alert('you won')
   } else if (store.gameArray[0] + store.gameArray[4] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'xxx' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'xxx') {
     store.over = true
   } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'ooo' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'ooo') {
@@ -95,19 +96,32 @@ let over
 
 const onUdateGame = function (event) {
   event.preventDefault()
-
   let value
   if (store.player === 'x') {
-    value = 'x'
-  } else {
+    value = 'x'}
+  else {
     value = 'o'
   }
 
-  $(event.target).text(value)
+  $(event.target).text(value, index)
+
+  winner()
+  const index = event.target.id
+  const over = store.over
+  // let index = event.target.id
   api.updateGame(index, value, over)
-    .then(ui.updateGamesuccess)
+    .then(ui.updateGameSuccess)
     .catch(ui.updateGamefailure)
+    // console.log(.then)
 }
+// const onUpdateGameBoard = function (event) {
+//   event.preventDefault()
+//   $(event.target).text(value, index)
+//   console.log(event.target)
+//   api.updateGameBoard(index, value, over)
+//     .then(ui.updateGameBoardsuccess)
+//     .catch(ui.updateGameBoardfailure)
+// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -117,6 +131,7 @@ const addHandlers = () => {
   $('#get-all-game').on('submit', onGetGamesForUser)
   $('#show-game-id').on('submit', onShowGamesForUser)
   $('.box').on('click', onUdateGame)
+  //$('.box').on('click', onUpdateGameBoard)
   //  $('#sign-out').on('submit', onSignOut)
 }
 

@@ -44,16 +44,28 @@ const showGameSuccess = (data) => {
 const showGameFailure = (error) => {
   console.error(error)
 }
-const updateGamesuccess = (data) => {
+
+const updateGameSuccess = (data) => {
+  console.log('inside updateGameSuccess')
   if (store.player === 'x') {
-    store.player = 'o'}
-  else {
+    store.player = 'o'
+    console.log(store.player)
+  } else {
     store.player = 'x'
   }
 }
+
 const updateGameFailure = (error) => {
   console.error(error)
 }
+
+// const updateGameBoardSuccess = (data) => {
+//   console.log(data)
+// }
+//
+// const updateGameBoardFailure = (error) => {
+//   console.error(error)
+// }
 // const SignOutSuccess = (data) => {
 //   console.log(data)
 // }
@@ -75,8 +87,10 @@ module.exports = {
   getGameFailure,
   showGameSuccess,
   showGameFailure,
-  updateGamesuccess,
+  updateGameSuccess,
   updateGameFailure
+  // updateGameBoardSuccess,
+  // updateGameBoardFailure
   // SignOutSuccess,
   // SignOutFailure
 }
