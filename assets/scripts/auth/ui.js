@@ -16,6 +16,7 @@ const signInFailure = (error) => {
 }
 const ChangepasswordSuccess = (data) => {
   console.log(data)
+  alert('password changed')
 }
 
 const ChangepasswordFailure = (error) => {

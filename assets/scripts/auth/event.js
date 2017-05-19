@@ -62,6 +62,7 @@ const onSignOut = function (event) {
   api.signOut()
     .then(() => {
       delete store.userId
+      refresh()
       //  startNewGame()
       return store
     })
@@ -76,10 +77,10 @@ const onSignOut = function (event) {
 //   }
 // }
 
-const winner = function (gameArray) {
+const winner = function () {
   console.log(store.gameArray)
-  if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2]  === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
-    $('.container').hide()
+  if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
+    // $('.container').hide()
     store.over = true
     alert('you won')
   } else if (store.gameArray[0] + store.gameArray[4] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'xxx' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'xxx') {
@@ -91,12 +92,20 @@ const winner = function (gameArray) {
   } else if (store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'ooo' || store.gameArray[0] && store.gameArray[4] && store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'ooo' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'ooo') {
     store.over = true
     alert('you won')
-  }
-  return store.over
+  } else { store.over = false }
 }
 
 let index
 let over
+// (let i = 0; i++)
+//  if (store.gameArray[i] === text('')){
+// over= true
+// winner()
+// }else{
+//   over= false
+//   winner()
+// }
+
 
 const onUpdateGame = function (event) {
   event.preventDefault()
@@ -109,7 +118,6 @@ const onUpdateGame = function (event) {
   $(event.target).text(value, index)
   const index = event.target.id
   // let index = event.target.id
-      const over = winner()
   api.updateGame(index, value, over)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGamefailure)
@@ -133,7 +141,7 @@ const addHandlers = () => {
   $('#get-all-game').on('submit', onGetGamesForUser)
   $('#show-game-id').on('submit', onShowGamesForUser)
   $('.box').on('click', onUpdateGame)
-  / $('#sign-out').on('submit', onSignOut)
+  $('#sign-out').on('submit', onSignOut)
   $('.refresh').on('click', refresh)
 }
 

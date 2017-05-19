@@ -26,6 +26,12 @@ $(document).ready(function () {
     $('#game').show()
   })
 })
+// $('.chnpwd').hide()
+// $(document).ready(function () {
+//   $('..chpwd').click(function () {
+//     $('.chnpwd').show()
+//   })
+// })
 // $(() => {
 //   $('#welcome-modal').modal({
 //     keyboard: false,
