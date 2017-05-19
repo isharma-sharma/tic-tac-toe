@@ -16,4 +16,21 @@ const authEvents = require('./auth/event.js')
 
 $(() => {
   authEvents.addHandlers()
+  // $('.box').on('dbclicK', function () {
+  //   alert('this square is selected')
+  // })
 })
+$('#game').hide()
+$(document).ready(function () {
+  $('.show-game').click(function () {
+    $('#game').show()
+  })
+})
+// $(() => {
+//   $('#welcome-modal').modal({
+//     keyboard: false,
+//     backdrop: 'static'
+//   })
+//   $('.chng-pswd"').hide()
+//   $('.log-out').hide()
+// })

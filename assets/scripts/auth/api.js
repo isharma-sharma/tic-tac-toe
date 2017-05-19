@@ -2,7 +2,7 @@
 const config = require('../config')
 const store = require('../store.js')
 
-const signUp = function (data) {
+const signUp = function(data) {
   console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
@@ -11,12 +11,12 @@ const signUp = function (data) {
   })
 }
 
-const signIn = function (data) {
+const signIn = function(data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-in',
-    method: 'POST',
-    data
-  })
+      url: config.apiOrigin + '/sign-in',
+      method: 'POST',
+      data
+    })
 
     .then((response) => {
       store.userToken = response.user.token
@@ -27,7 +27,7 @@ const signIn = function (data) {
     .then(console.log)
 }
 
-const changePassword = function (data) {
+const changePassword = function(data) {
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.userId,
     method: 'PATCH',
@@ -38,15 +38,15 @@ const changePassword = function (data) {
   })
 }
 
-// const signOut = function () {
-//   return $.ajax({
-//     url: config.apiOrigin + '/sign-out/' + store.user.id,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token ,
-//     }
-//   })
-// }
+const signOut = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/sign-out/' + store.userId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
+}
 
 const createGame = function () {
   return $.ajax({
@@ -56,11 +56,11 @@ const createGame = function () {
       Authorization: 'Token token=' + store.userToken
     }
   })
-  .then((response) => {
-    store.gameId = response.game.id
-    return store
-  })
-  .then(console.log)
+    .then((response) => {
+      store.gameId = response.game.id
+      return store
+    })
+    .then(console.log)
 }
 const getGamesForUser = function () {
   return $.ajax({
@@ -72,7 +72,6 @@ const getGamesForUser = function () {
   })
 }
 const showGame = function () {
-  console.log(store.gameId)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameId,
     method: 'GET',
@@ -100,28 +99,11 @@ const updateGame = function (index, value, over) {
       }
     }
   })
-  .then((response) => {
-    console.log(response)
-  })
+    .then((response) => {
+      store.gameArray = response.game.cells
+    })
 }
-// const updateGameBoard = function (index, value, over) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.gameId,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.userToken
-//     },
-//     data: {
-//       'game': {
-//         'cell': {
-//           'index': index,
-//           'value': value
-//         },
-//         'over': over
-//       }
-//     }
-//   })
-// }
+
 module.exports = {
   signUp,
   signIn,
@@ -129,7 +111,6 @@ module.exports = {
   createGame,
   getGamesForUser,
   showGame,
-  updateGame
-  // updateGameBoard
-  //signOut
+  updateGame,
+  signOut
 }

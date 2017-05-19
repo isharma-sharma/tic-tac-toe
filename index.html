@@ -36,15 +36,12 @@
   </form>
   <form id="change-password">
     <label>Change Pasword!</label>
-    <input type="password" name="passwords[old]" value="">
+    <input type="password" class= "chng-pswd" name="passwords[old]" value="">
     <label>password</label>
     <input type="password" name="passwords[new]" value="">
     <button type="submit" class="btn btn-default navbar-btn">change-password</button>
   </form>
-
-
-  <body class="container-fluid">
-
+ <button type="button" id = "sign-out" class ="log-out">signout </button>
     <form id="game-board">
   <input type ="submit" name="submit" value="createGame">
 </form>
@@ -52,10 +49,15 @@
   <input type="submit" name ="submit"  value="get-all-game">
   </form>
   <form id="show-game-id">
+
+<div id= "show-all-game">
+</div>
 <input type="submit" name ="submit"  value="get game by id">
 </form>
+   <button type="button" class="show-game" >SHOW-GAME </button>
+<div id="game" class =".container">
       <fieldset>
-<div id="game">
+
         <div class="row">
         <div id="0" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
         <div id="1" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
@@ -73,6 +75,8 @@
         </div>
         </div>
 </fieldset>
+
+<button type ="button" class="refresh"> refresh game </button>
 </body>
 
 </html>

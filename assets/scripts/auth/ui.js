@@ -46,7 +46,7 @@ const showGameFailure = (error) => {
 }
 
 const updateGameSuccess = (data) => {
-  console.log('inside updateGameSuccess')
+  // console.log('inside updateGameSuccess')
   if (store.player === 'x') {
     store.player = 'o'
     console.log(store.player)
@@ -59,20 +59,14 @@ const updateGameFailure = (error) => {
   console.error(error)
 }
 
-// const updateGameBoardSuccess = (data) => {
-//   console.log(data)
-// }
-//
-// const updateGameBoardFailure = (error) => {
-//   console.error(error)
-// }
-// const SignOutSuccess = (data) => {
-//   console.log(data)
-// }
-//
-// const SignOutFailure = (error) => {
-//   console.error(error)
-// }
+const signOutSuccess = (data) => {
+  alert('login again')
+  console.log(data)
+}
+
+const signOutFailure = (error) => {
+  console.error(error)
+}
 
 module.exports = {
   signUpSuccess,
@@ -88,9 +82,7 @@ module.exports = {
   showGameSuccess,
   showGameFailure,
   updateGameSuccess,
-  updateGameFailure
-  // updateGameBoardSuccess,
-  // updateGameBoardFailure
-  // SignOutSuccess,
-  // SignOutFailure
+  updateGameFailure,
+  signOutSuccess,
+  signOutFailure
 }
