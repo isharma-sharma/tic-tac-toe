@@ -22,21 +22,32 @@ $(() => {
 })
 $('#game').hide()
 $(document).ready(function () {
-  $('.show-game').click(function () {
-    $('#game').show()
+  // On first load
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#game-board').hide()
+  $('#change-password').hide()
+  // Login function
+  $('#login-btn').click(function () {
+    $('#sign-in').show()
+    $('#sign-up').hide()
+    $('#game-board').hide()
+    $('#change-password').hide()
+  })
+  // sign-up function
+  $('#sign-up-btn').click(function () {
+    $('#sign-up').show()
+    $('#sign-in').hide()
+    $('#game-board').hide()
+    $('#change-password').hide()
+  })
+  $('#changePassword-btn').click(function () {
+    $('#sign-up').hide()
+    $('#sign-in').hide()
+    $('#game-board').hide()
+    $('#change-password').show()
+  })
+  $('#show-game').click(function () {
+    $('#game-board').show()
   })
 })
-// $('.chnpwd').hide()
-// $(document).ready(function () {
-//   $('..chpwd').click(function () {
-//     $('.chnpwd').show()
-//   })
-// })
-// $(() => {
-//   $('#welcome-modal').modal({
-//     keyboard: false,
-//     backdrop: 'static'
-//   })
-//   $('.chng-pswd"').hide()
-//   $('.log-out').hide()
-// })
