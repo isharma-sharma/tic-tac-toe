@@ -17,7 +17,6 @@ const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
-
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
@@ -51,9 +50,9 @@ const onShowGamesForUser = function (event) {
 }
 
 const refresh = function () {
-  for (let i = 0; i < store.gameArray.length; i++) {
-    $('.box').text('')
-  }
+  // for (let i = 0; i < store.gameArray.length; i++) {
+  $('.box').text('')
+  // }
   api.createGame()
 }
 
@@ -70,37 +69,40 @@ const onSignOut = function (event) {
    .catch(ui.signOutFailure)
 }
 
-const winner = function () {
-  console.log('executed')
-  if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
-    // $('.container').hide()
-    store.over = true
-    $('.Winner').text('X won!')
-    $('.box').css('pointer-events', 'none')
-  } else if (store.gameArray[0] + store.gameArray[4] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'xxx' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'xxx') {
-    store.over = true
-    $('.Winner').text('X won!')
-    $('.box').css('pointer-events', 'none')
-  } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'ooo' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'ooo') {
-    store.over = true
-    $('.Winner').text('O won!')
-    $('.box').css('pointer-events', 'none')
-  } else if (store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'ooo' || store.gameArray[0] && store.gameArray[4] && store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'ooo' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'ooo') {
-    store.over = true
-    $('.Winner').text('O won!')
-    $('.box').css('pointer-events', 'none')
-  } else {
-    store.over = false
-    $('.Winner').text('NOBODY won!')
-    $('.box').css('pointer-events', 'none')
-  }
-}
+// const winner = () => {
+//   console.log('executed')
+//   if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' ||
+//   store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
+//     // $('.container').hide()
+//     store.over = true
+//     $('.Winner').text('X won!')
+//     $('.box').css('pointer-events', 'none')
+//   } else if (store.gameArray[0] + store.gameArray[4] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'xxx' ||
+//     store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'xxx') {
+//     store.over = true
+//     $('.Winner').text('X won!')
+//     $('.box').css('pointer-events', 'none')
+//   } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'ooo' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'ooo' ||
+//    store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'ooo') {
+//     store.over = true
+//     $('.Winner').text('O won!')
+//     $('.box').css('pointer-events', 'none')
+//   } else if (store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'ooo' || store.gameArray[0] && store.gameArray[4] && store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'ooo' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'ooo') {
+//     store.over = true
+//     $('.Winner').text('O won!')
+//     $('.box').css('pointer-events', 'none')
+//   } else {
+//     store.over = false
+//     $('.Winner').text('NOBODY won!')
+//     $('.box').css('pointer-events', 'none')
+//   }
+// }
 
 let over
 
 const onUpdateGame = function (event) {
-  console.log('i m inside updateGame')
   event.preventDefault()
+
   let value
   console.log($(event.target).text())
   if ($(event.target).text() === '') {
@@ -113,6 +115,7 @@ const onUpdateGame = function (event) {
   }
   const index = event.target.id
   $(event.target).text(value, index)
+  console.log('i m inside updateGame', value)
   api.updateGame(index, value, over)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGamefailure)
@@ -142,6 +145,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers,
-  winner
+  addHandlers
+  // winner
 }

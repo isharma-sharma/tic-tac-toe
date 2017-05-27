@@ -1,6 +1,6 @@
 'use strict'
 const store = require('../store')
-const authEvents = require('./event.js')
+
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -50,14 +50,14 @@ const showGameFailure = (error) => {
 }
 
 const updateGameSuccess = (data) => {
-  // console.log(authEvents)
+  console.log('the winner')
   if (store.player === 'x') {
     store.player = 'o'
     console.log(store.player)
   } else {
     store.player = 'x'
   }
-  authEvents.winner
+  store.winner()
 }
 const updateGameFailure = (error) => {
   console.error(error)

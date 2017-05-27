@@ -2,7 +2,7 @@
 const config = require('../config')
 const store = require('../store.js')
 
-const signUp = function(data) {
+const signUp = function (data) {
   console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
@@ -13,10 +13,10 @@ const signUp = function(data) {
 
 const signIn = function (data) {
   return $.ajax({
-      url: config.apiOrigin + '/sign-in',
-      method: 'POST',
-      data
-    })
+    url: config.apiOrigin + '/sign-in',
+    method: 'POST',
+    data
+  })
 
     .then((response) => {
       store.userToken = response.user.token
@@ -82,7 +82,7 @@ const showGame = function () {
 }
 
 const updateGame = function (index, value, over) {
-  console.log('inside updateGame')
+  console.log('inside updateGame index is ', value)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameId,
     method: 'PATCH',
@@ -99,9 +99,13 @@ const updateGame = function (index, value, over) {
       }
     }
   })
-    .then((response) => {
-      store.gameArray = response.game.cells
-    })
+  .then((response) => {
+    console.log(response)
+    console.log(index)
+
+    store.store.gameArray[index] = response.game.cells[index]
+    console.log(store)
+  })
 }
 
 module.exports = {
