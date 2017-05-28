@@ -6,7 +6,7 @@ const store = {
 
 }
 const winner = () => {
-  console.log("checking winner and store is ", store)
+  console.log('checking winner and store is ', store)
   console.log('executed')
 
   // Check for horizontal X matches
