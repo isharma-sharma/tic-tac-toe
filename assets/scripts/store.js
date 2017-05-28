@@ -1,7 +1,6 @@
 'use strict'
-
+let player = 'x'
 const store = {
-  player: 'x',
   gameArray: ['', '', '', '', '', '', '', '', '']
 
 }
@@ -62,4 +61,5 @@ const winner = () => {
   }
 }
 module.exports = {store,
-  winner}
+  winner,
+  player}

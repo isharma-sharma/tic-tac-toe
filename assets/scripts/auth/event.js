@@ -106,6 +106,7 @@ const onUpdateGame = function (event) {
   let value
   console.log($(event.target).text())
   if ($(event.target).text() === '') {
+    console.log('I m here')
     if (store.player === 'x') {
       value = 'x'
     } else {

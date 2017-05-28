@@ -25,7 +25,7 @@ const ChangepasswordFailure = (error) => {
 }
 
 const createGameSuccess = (data) => {
-  console.log(data)
+  $('#gameId').text('GAME ID:' + store.gameId)
 }
 
 const createGamefailure = (error) => {
