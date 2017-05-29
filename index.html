@@ -1,144 +1,213 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>My first page</title>
+  <title>My first page</title>
 
   <!-- Do not add `script` tags unless you know what you are doing -->
-   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
 </head>
+
 <body>
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
-	    </div>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
+      </div>
 
-	    <ul class="nav navbar-nav navbar-right">
-	      <li><a id="sign-up-btn" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	      <li><a id="login-btn" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-         <li><a id="changePassword-btn" href="#"><span class="glyphicon glyphicon-log-in"></span> change-password</a></li>
-       <li><a id="sign-out-btn" href="#"><span class="glyphicon glyphicon-user"></span> Sign-out</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="sign-up-btn" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a id="login-btn" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a id="changePassword-btn" href="#"><span class="glyphicon glyphicon-log-in"></span> change-password</a></li>
+        <li><a id="sign-out-btn" href="#"><span class="glyphicon glyphicon-user"></span> Sign-out</a></li>
       </ul>
-	  </div>
-	</nav>
-
-          <!-- Login form-->
-         <div class="col-md-4">
-          <form id="sign-in">
-              <h2>Login</h2>
-    		  <div class="form-group">
-    		    <label for="email">Email address:</label>
-    		    <input type="email" name="credentials[email]" class="form-control" id="email">
-    		  </div>
-    		  <div class="form-group">
-    		    <label for="pwd">Password:</label>
-    		    <input type="password" name="credentials[password]" class="form-control" id="pwd">
-    		  </div>
-
-    		  <button type="submit" class="btn btn-default">Submit</button>
-    		</form>
+    </div>
+  </nav>
+  <!-- End : Nav bar -->
+  <!-- Main content-->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-2">
+        <!-- Left Bar -->
       </div>
-          <!-- End :Login form-->
+      <!-- Middle Col-->
+      <div class="col-md-8">
+        <!-- Alerts -->
+        <div class="alert alert-success alert-dismissable" id="success">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success!</strong> <span id="succmsg"></span>
+        </div>
+        <div class="alert alert-danger alert-dismissable" id="error">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Error!</strong> <span id="errmsg"></span>
+        </div>
+        <!-- End Alerts -->
+        <!-- Login form-->
+        <form id="sign-in">
+          <h2>Login</h2>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" name="credentials[email]" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="credentials[password]" class="form-control" id="pwd">
+          </div>
 
-          <!-- sign-up form-->
-          <div class="col-md-4">
-          <form id="sign-up">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+        <!-- End :Login form-->
+
+        <!-- sign-up form-->
+
+        <form id="sign-up">
           <h2>Signup</h2>
-    		  <div class="form-group">
-    		    <label for="email">Email address:</label>
-    		    <input type="email" name="credentials[email]" class="form-control" id="email">
-    		  </div>
-    		  <div class="form-group">
-    		    <label for="pwd">Password:</label>
-    		    <input type="password" name="credentials[password]" class="form-control" id="pwd">
-    		  </div>
-    		  <div class="form-group">
-    		    <label for="pwd">ConfirmPassword:</label>
-    		    <input type="password" nname="credentials[password_confirmation]" class="form-control" id="pwd">
-    		 </div>
-    		  <button type="submit" class="btn btn-default">Submit</button>
-    		</form>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" name="credentials[email]" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="credentials[password]" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+            <label for="pwd">ConfirmPassword:</label>
+            <input type="password" nname="credentials[password_confirmation]" class="form-control" id="pwd">
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+        </form>
+        <!-- End :Signup form-->
+        <!---change password form begins here -->
+        <form id="change-password">
+          <h2>CHANGE PASSWORD</h2>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" name="passwords[old]" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="passwords[new]" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+            <label for="pwd">ConfirmPassword:</label>
+            <input type="password" nname="credentials[password_confirmation]" class="form-control" id="pwd">
+          </div>
+          <button type="submit" class="btn btn-info btn-block">Submit</button>
+        </form>
+        <!-- change passwordform ends here -->
+        <!--signOut button-->
+        <!-- <button type = "button" id="#sign-out"> SIGN-OUT</button> -->
+        <!--button signout done above -->
+        <div id="show-game-panel">
+          <div class="row col-md-12">
+            <div class="col-md-4"><b>User Id : </b></div>
+            <div class="col-md-8" id="userId"></div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-4"><b>My Games</b></div>
+            <div class="col-md-8" id="gamesList"></div>
+          </div>
+          <div class="row col-md-12">
+            <form id="show-game-id">
+              <div class="col-md-4">
+
+                <div id="show-gamebyid">
+                  <input type="text" name="gameId" value="">
+                </div>
+
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" id="get-game-by-id"> <span class="glyphicon glyphicon-user"></span> Get Game </button>
+
+              </div>
+            </form>
+            <div class="col-md-4">
+              <!--show button to show game grid starts-->
+              <button type="submit" class="btn btn-primary" id="show-game"> <span class="glyphicon glyphicon-ok"></span> New Game </button>
+              <!--show button to show game grid ends-->
+              <!--show new game-->
+
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-2"></div>
+            <!---game id should be visible here-->
+            <div class="col-md-8">
+              <p id="gameId"></p>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <p class="Winner">
+                <!---pragrahh to show who win -->
+              </p>
+              <div id="game-board" class="container">
+                <fieldset>
+
+                  <div class="row">
+                    <div id="0" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="1" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="2" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="3" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="4" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="5" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="6" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="7" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="8" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                  </div>
+
+                </fieldset>
+                <!--grid of tic-tac-toe ends here -->
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <!--grid of tic-tac-toe starts here-->
+        </div>
+
+
+
       </div>
-          <!-- End :Signup form-->
-
-
-
-       <!---change password form begins here -->
-       <div class="col-md-4">
-       <form id="change-password">
-       <h2>CHANGE PASSWORD</h2>
-       <div class="form-group">
-         <label for="email">Email address:</label>
-         <input type="email" name="passwords[old]"class="form-control" id="email">
-       </div>
-       <div class="form-group">
-         <label for="pwd">Password:</label>
-         <input type="password" name="passwords[new]" class="form-control" id="pwd">
-       </div>
-       <div class="form-group">
-         <label for="pwd">ConfirmPassword:</label>
-         <input type="password" nname="credentials[password_confirmation]" class="form-control" id="pwd">
-       </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-</div>
-
-       <!-- change passwordform ends here -->
-       <!--signOut button-->
-       <!-- <button type = "button" id="#sign-out"> SIGN-OUT</button> -->
-       <!--button signout done above -->
-
-      <!--show button to show game grid starts-->
-    <button type="submit" class="btn btn-default navbar-btn" id ="show-game">showGame</button>
-    <!--show button to show game grid ends-->
-
-<!-- getGameby id-->
-<!---game id should be visible here-->
-<p id="gameId">store.gameId</p>
-<!---->
-<form id="show-game-id">
-<div id= "show-gamebyid">
-<input type="text" name ="gameId" value ="">
-<input type="submit" name ="submit"  value="GET GAME BY ID">
-</div>
-</form>
-
-
-<!--grid of tic-tac-toe starts here-->
-
-<p class ="Winner"><!---pragrahh to show who win --></p>
-<div id="game-board" class ="container">
-      <fieldset>
-
-        <div class="row">
-        <div id="0" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        <div id="1" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        <div id="2" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        </div>
-        <div class="row">
-        <div id="3" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        <div id="4" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        <div id="5" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        </div>
-        <div class="row">
-        <div id="6" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        <div id="7" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        <div id="8" class="col-xs-4 col-md-4 box cellheight"><p></p></div>
-        </div>
-
-</fieldset>
-
-
-</div>
-<!--grid of tic-tac-toe ends here -->
-<!--show new game-->
-<button type ="button" class="refresh"> play new game </button>
-
-
-	<!-- End : main content-->
-
+    </div>
+    <!--End of midle div -->
+    <div class="col-md-2">
+      &nbsp;
+      <!-- Right Bar -->
+    </div>
+  </div>
+  <!--End of row -->
+  </div>
+  <!-- End : main content-->
 </body>
+
 </html>

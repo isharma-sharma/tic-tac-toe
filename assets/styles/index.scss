@@ -1,27 +1,32 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-body{
-background-color: white;
+body {
+  background-color: white;
 }
-.cellheight{
+
+.cellheight {
   height: 100px;
-  width:150px;
+  width: 150px;
   padding: 3px;
 }
 
-
- .box {
-   border: 2px solid black;
-   background-color: white;
-   text-align: center;
-
- }
- #game {
-   margin-left: 350px;
-
-   margin-bottom: 100px;
+.box {
+  border: 2px solid black;
+  background-color: white;
+  text-align: center;
+  font: 20px arial, sans-serif;
 }
-.col-md-4{
+
+#game {
+  margin-left: 350px;
+  margin-bottom: 100px;
+}
+
+.col-md-4 {
   position: relative;
+}
+
+#gamesList {
+  word-wrap: break-word;
 }

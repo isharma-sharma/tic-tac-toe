@@ -18,6 +18,9 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(api.getGamesForUser)
+    .then(ui.getGameSuccess)
+    .catch(ui.getGameFailure)
     .catch(ui.signInFailure)
 }
 
@@ -49,11 +52,11 @@ const onShowGamesForUser = function (event) {
     .catch(ui.showGameFailure)
 }
 
-const refresh = function () {
+const reset = function () {
   // for (let i = 0; i < store.gameArray.length; i++) {
   $('.box').text('')
   // }
-  api.createGame()
+  // api.createGame()
 }
 
 const onSignOut = function (event) {
@@ -69,42 +72,13 @@ const onSignOut = function (event) {
    .catch(ui.signOutFailure)
 }
 
-// const winner = () => {
-//   console.log('executed')
-//   if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'xxx' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'xxx' ||
-//   store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'xxx' || store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'xxx') {
-//     // $('.container').hide()
-//     store.over = true
-//     $('.Winner').text('X won!')
-//     $('.box').css('pointer-events', 'none')
-//   } else if (store.gameArray[0] + store.gameArray[4] + store.gameArray[8] === 'xxx' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'xxx' ||
-//     store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'xxx') {
-//     store.over = true
-//     $('.Winner').text('X won!')
-//     $('.box').css('pointer-events', 'none')
-//   } else if (store.gameArray[0] + store.gameArray[1] + store.gameArray[2] === 'ooo' || store.gameArray[2] + store.gameArray[5] + store.gameArray[8] === 'ooo' ||
-//    store.gameArray[6] + store.gameArray[7] + store.gameArray[8] === 'ooo') {
-//     store.over = true
-//     $('.Winner').text('O won!')
-//     $('.box').css('pointer-events', 'none')
-//   } else if (store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'ooo' || store.gameArray[0] && store.gameArray[4] && store.gameArray[8] === 'ooo' || store.gameArray[6] + store.gameArray[4] + store.gameArray[2] === 'ooo' || store.gameArray[1] + store.gameArray[4] + store.gameArray[7] === 'ooo') {
-//     store.over = true
-//     $('.Winner').text('O won!')
-//     $('.box').css('pointer-events', 'none')
-//   } else {
-//     store.over = false
-//     $('.Winner').text('NOBODY won!')
-//     $('.box').css('pointer-events', 'none')
-//   }
-// }
-
 let over
 
 const onUpdateGame = function (event) {
   event.preventDefault()
 
   let value
-  console.log($(event.target).text())
+  // console.log($(event.target).text())
   if ($(event.target).text() === '') {
     console.log('I m here')
     if (store.player === 'x') {
@@ -142,7 +116,7 @@ const addHandlers = () => {
   $('#show-game-id').on('submit', onShowGamesForUser)
   $('.box').on('click', onUpdateGame)
   $('#sign-out-btn').on('click', onSignOut)
-  $('.refresh').on('click', refresh)
+  $('.reset').on('click', reset)
 }
 
 module.exports = {
