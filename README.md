@@ -7,6 +7,7 @@ This is a SPA allowing two players to play tic tac toe. I decided to build out t
 
 
 Link to wireframes and user stories:
-USER STORIES: As a user, I would like to be able to switch between myself and another person to play the game. As a user,  As a user, I want to have a working game board that tells me the score. As a user, I want to have my user name saved as well as my current game history. As a user, I want there to be a notification when somebody wins.  As a logged in user, I would like to be presented with the option to play another game after completing one, so that I can continue playing.As the administrator, I want this game to hold my user's scores in a database that can be accessed whenever the person is signed in. As the administrator, I want there to be an option for the user's password to be updated if the at their request.
+USER STORIES: As a user, I would like to be able to switch between myself and another person to play the game.   As a user, I want to have a working game board . As a user, I want to show my gameId and play my unplayed gamewant to save my current game history. As a user, I want there to be a notification when somebody wins.  As a logged in user, I would like to be presented with the option to play another game after completing one, so that I can continue playing.As the administrator, I want this game to hold my user's scores in a database that can be accessed whenever the person is signed in. As the administrator, I want there to be an option for the user's password to be updated if the at their request.
 
-WIREFRAMES: HAVE TO ADDIMAGE BY GETTING URL BY IMGUR.COM
+WIREFRAMES: 
+http://imgur.com/a/gvcQO
