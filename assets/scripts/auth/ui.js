@@ -11,7 +11,6 @@ const signUpFailure = (error) => {
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('Signup failed.Please input proper data')
-
 }
 const signInSuccess = (data) => {
   $('#show-game-panel').show()
@@ -35,6 +34,7 @@ const ChangepasswordSuccess = (data) => {
 }
 
 const ChangepasswordFailure = (error) => {
+  console.error(error)
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('Failed ')
@@ -84,7 +84,6 @@ const showGameFailure = (error) => {
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('Failed - ' + error.message)
-
 }
 
 const updateGameSuccess = (data) => {
@@ -111,6 +110,7 @@ const signOutSuccess = (data) => {
 }
 
 const signOutFailure = (error) => {
+  console.log(error)
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('Failed')

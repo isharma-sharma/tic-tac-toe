@@ -86,19 +86,19 @@
         <!---change password form begins here -->
         <form id="change-password">
           <h2>CHANGE PASSWORD</h2>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" name="passwords[old]" class="form-control" id="email">
+            <input type="email" name="credentials[email]" class="form-control" id="email">
+          </div> -->
+          <div class="form-group">
+            <label for="pwd"> Old-Password:</label>
+            <input type="password" name="passwords[old]" class="form-control" id="pwd">
           </div>
           <div class="form-group">
-            <label for="pwd">Password:</label>
+            <label for="pwd">New-Password:</label>
             <input type="password" name="passwords[new]" class="form-control" id="pwd">
           </div>
-          <div class="form-group">
-            <label for="pwd">ConfirmPassword:</label>
-            <input type="password" nname="credentials[password_confirmation]" class="form-control" id="pwd">
-          </div>
-          <button type="submit" class="btn btn-info btn-block">Submit</button>
+          <button type="submit" class="btn btn-info btn-block ">Submit</button>
         </form>
         <!-- change passwordform ends here -->
         <!--signOut button-->
@@ -123,7 +123,7 @@
 
               </div>
               <div class="col-md-4">
-                <button type="submit" class="btn btn-primary" id="get-game-by-id"> <span class="glyphicon glyphicon-user"></span> Get Game </button>
+                <button type="submit" class="btn btn-primary" id="get-game-by-id"> <span class="glyphicon glyphicon-user"></span> Play Game By Id</button>
 
               </div>
             </form>

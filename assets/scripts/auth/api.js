@@ -11,12 +11,12 @@ const signUp = function(data) {
   })
 }
 
-const signIn = function(data) {
+const signIn = function (data) {
   return $.ajax({
-      url: config.apiOrigin + '/sign-in',
-      method: 'POST',
-      data
-    })
+    url: config.apiOrigin + '/sign-in',
+    method: 'POST',
+    data
+  })
 
     .then((response) => {
       store.userToken = response.user.token
@@ -27,7 +27,7 @@ const signIn = function(data) {
     .then(console.log)
 }
 
-const changePassword = function(data) {
+const changePassword = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.userId,
     method: 'PATCH',
