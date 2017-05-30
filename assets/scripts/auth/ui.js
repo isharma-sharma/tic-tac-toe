@@ -49,6 +49,9 @@ const createGameSuccess = (data) => {
   $('#success').show()
   $('#error').hide()
   $('#succmsg').text('New game with id -' + store.gameId + ' created successfully.')
+  console.log('updateGameSuccess')
+  $('.box').css('pointer-events', 'auto')
+  store.player = 'x'
 }
 
 const createGamefailure = (error) => {
@@ -78,6 +81,7 @@ const showGameSuccess = (data) => {
   $('#success').show()
   $('#error').hide()
   $('#succmsg').text('Loaded game Id -' + store.gameId)
+
 }
 
 const showGameFailure = (error) => {
@@ -96,6 +100,7 @@ const updateGameSuccess = (data) => {
   }
   store.winner()
 }
+
 const updateGameFailure = (error) => {
   console.error(error)
 }

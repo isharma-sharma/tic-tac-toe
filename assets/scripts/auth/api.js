@@ -2,7 +2,7 @@
 const config = require('../config')
 const store = require('../store.js')
 
-const signUp = function(data) {
+const signUp = function (data) {
   console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
@@ -38,7 +38,7 @@ const changePassword = function (data) {
   })
 }
 
-const signOut = function() {
+const signOut = function () {
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.userId,
     method: 'DELETE',
@@ -48,21 +48,21 @@ const signOut = function() {
   })
 }
 
-const createGame = function() {
+const createGame = function () {
   return $.ajax({
-      url: config.apiOrigin + '/games',
-      method: 'POST',
-      headers: {
-        Authorization: 'Token token=' + store.userToken
-      }
-    })
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
     .then((response) => {
       store.gameId = response.game.id
       return store
     })
     .then(console.log)
 }
-const getGamesForUser = function() {
+const getGamesForUser = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',
@@ -76,14 +76,14 @@ const getGamesForUser = function() {
     console.log(store)
   })
 }
-const showGame = function(game) {
+const showGame = function (game) {
   return $.ajax({
-      url: config.apiOrigin + '/games/' + game.gameId,
-      method: 'GET',
-      headers: {
-        Authorization: 'Token token=' + store.userToken
-      }
-    })
+    url: config.apiOrigin + '/games/' + game.gameId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
     .then((response) => {
       console.log('Get response -' + response)
       store.gameId = response.game.id
@@ -92,24 +92,24 @@ const showGame = function(game) {
     })
 }
 
-const updateGame = function(index, value, over) {
+const updateGame = function (index, value, over) {
   console.log('inside updateGame index is ', value)
   return $.ajax({
-      url: config.apiOrigin + '/games/' + store.gameId,
-      method: 'PATCH',
-      headers: {
-        Authorization: 'Token token=' + store.userToken
-      },
-      data: {
-        'game': {
-          'cell': {
-            'index': index,
-            'value': value
-          },
-          'over': over
-        }
+    url: config.apiOrigin + '/games/' + store.gameId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': over
       }
-    })
+    }
+  })
     .then((response) => {
       console.log(response)
       console.log(index)

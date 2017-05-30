@@ -21,7 +21,7 @@ $(() => {
   // })
 })
 $('#game').hide()
-$(document).ready(function() {
+$(document).ready(function () {
   // On first load
   $('#sign-in').show()
   $('#sign-up').hide()
@@ -50,7 +50,7 @@ $(document).ready(function() {
     $('#success').hide()
     $('#error').hide()
   })
-  $('#changePassword-btn').click(function() {
+  $('#changePassword-btn').click(function () {
     $('#sign-up').hide()
     $('#sign-in').hide()
     $('#game-board').hide()
@@ -59,17 +59,17 @@ $(document).ready(function() {
     $('#success').hide()
     $('#error').hide()
   })
-  $('#show-game').click(function() {
+  $('#show-game').click(function () {
     $('#game-board').show()
     $('#success').hide()
     $('#error').hide()
   })
-  $('#get-game-by-id').click(function() {
+  $('#get-game-by-id').click(function () {
     $('#game-board').show()
     $('#success').hide()
     $('#error').hide()
   })
-  $('#sign-out-btn').click(function() {
+  $('#sign-out-btn').click(function () {
     $('#sign-in').show()
     $('#sign-up').hide()
     $('#game-board').hide()

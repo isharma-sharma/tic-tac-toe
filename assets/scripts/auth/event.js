@@ -78,7 +78,7 @@ const onUpdateGame = function (event) {
   event.preventDefault()
 
   let value
-  // console.log($(event.target).text())
+  console.log('is handler working')
   if ($(event.target).text() === '') {
     console.log('I m here')
     if (store.player === 'x') {
@@ -87,6 +87,7 @@ const onUpdateGame = function (event) {
       value = 'o'
     }
     $('.event.target').css('pointer-events', 'none')
+
   }
   const index = event.target.id
   $(event.target).text(value, index)
