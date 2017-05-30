@@ -22,7 +22,6 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = (error) => {
-  console.error(error)
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('Signin failed.Please input proper data')
