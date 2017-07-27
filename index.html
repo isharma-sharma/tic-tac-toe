@@ -30,24 +30,35 @@
   <!-- End : Nav bar -->
   <!-- Main content-->
   <div class="container">
+
     <!-- row -->
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-sm-4">
         <!-- Left Bar -->
+
       </div>
       <!-- Middle Col-->
-      <div class="col-md-8">
+<!-- <div>
+      Challenge your friend with this version of the beloved game.
+      How many rounds will you win? It’s time to find out in this fun online game.
+    </div> -->
         <!-- Alerts -->
         <div class="alert alert-success alert-dismissable" id="success">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> <span id="succmsg"></span>
+          <span id="succmsg"></span>
         </div>
         <div class="alert alert-danger alert-dismissable" id="error">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Error!</strong> <span id="errmsg"></span>
         </div>
+
         <!-- End Alerts -->
         <!-- Login form-->
+        <div class="col-sm-4">
+          <div class ='row col-md-12 explain'>
+                Challenge your friend with this version of the beloved game.
+                How many rounds will you win? It’s time to find out in this fun online game.
+              </div>
         <form id="sign-in">
           <h2>Login</h2>
           <div class="form-group">
@@ -78,7 +89,7 @@
           </div>
           <div class="form-group">
             <label for="pwd">ConfirmPassword:</label>
-            <input type="password" nname="credentials[password_confirmation]" class="form-control" id="pwd">
+            <input type="password" name="credentials[password_confirmation]" class="form-control" id="pwd">
           </div>
           <button type="submit" class="btn btn-success btn-block">Sign Up</button>
         </form>
@@ -86,10 +97,7 @@
         <!---change password form begins here -->
         <form id="change-password">
           <h2>CHANGE PASSWORD</h2>
-          <!-- <div class="form-group">
-            <label for="email">Email address:</label>
-            <input type="email" name="credentials[email]" class="form-control" id="email">
-          </div> -->
+
           <div class="form-group">
             <label for="pwd"> Old-Password:</label>
             <input type="password" name="passwords[old]" class="form-control" id="pwd">
@@ -100,14 +108,15 @@
           </div>
           <button type="submit" class="btn btn-info btn-block ">Submit</button>
         </form>
+      </div>
         <!-- change passwordform ends here -->
         <!--signOut button-->
-        <!-- <button type = "button" id="#sign-out"> SIGN-OUT</button> -->
+
         <!--button signout done above -->
         <div id="show-game-panel">
           <div class="row col-md-12">
-            <div class="col-md-4"><b>User Id : </b></div>
-            <div class="col-md-8" id="userId"></div>
+            <!-- <div class="col-md-4"><b>User Id : </b></div> -->
+            <!-- <div class="col-md-8" id="userId"></div> -->
           </div>
           <div class="row col-md-12">
             <div class="col-md-4"><b>My Games</b></div>
@@ -129,7 +138,7 @@
             </form>
             <div class="col-md-4">
               <!--show button to show game grid starts-->
-              <button type="submit" class="btn btn-primary" id="show-game"> <span class="glyphicon glyphicon-ok"></span> New Game </button>
+              <button type="click" class="btn btn-primary" id="show-game"> <span class="glyphicon glyphicon-ok"></span> New Game </button>
               <!--show button to show game grid ends-->
               <!--show new game-->
 
@@ -206,7 +215,7 @@
     </div>
   </div>
   <!--End of row -->
-  </div>
+
   <!-- End : main content-->
 </body>
 

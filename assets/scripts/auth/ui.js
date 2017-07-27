@@ -1,9 +1,14 @@
 'use strict'
-const api = require('./api')
+// const api = require('./api')
 const store = require('../store')
 
 const signUpSuccess = (data) => {
   console.log(data)
+  $('.form-control').val('')
+  $('#sign-up').hide()
+  $('#success').show()
+  $('#error').hide()
+  $('#succmsg').text('signUpSuccess please signIn to play')
 }
 
 const signUpFailure = (error) => {
@@ -18,10 +23,14 @@ const signInSuccess = (data) => {
   $('#userId').text(store.userId)
   $('#success').show()
   $('#error').hide()
-  $('#succmsg').text('Welcome user ' + store.userId)
+  $('#succmsg').text('Welcome  ' + store.email + ' Your User Id Is- ' + store.userId)
+  $('.form-control').val('')
+  $('#changePassword-btn').show()
+  $('#sign-out-btn').show()
 }
 
 const signInFailure = (error) => {
+  console.log(error)
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('Signin failed.Please input proper data')
@@ -30,13 +39,14 @@ const ChangepasswordSuccess = (data) => {
   $('#success').show()
   $('#error').hide()
   $('#succmsg').text('Password changed.')
+  $('.form-control').val('')
 }
 
 const ChangepasswordFailure = (error) => {
   console.error(error)
   $('#success').hide()
   $('#error').show()
-  $('#errmsg').text('Failed ')
+  $('#errmsg').text('change-password Failed!Please input proper data')
 }
 
 const createGameSuccess = (data) => {
@@ -80,7 +90,6 @@ const showGameSuccess = (data) => {
   $('#success').show()
   $('#error').hide()
   $('#succmsg').text('Loaded game Id -' + store.gameId)
-
 }
 
 const showGameFailure = (error) => {
@@ -111,6 +120,7 @@ const signOutSuccess = (data) => {
   $('#change-password').hide()
   $('#show-game-panel').hide()
   console.log('on signOutSuccess')
+  $('.form-control').val('')
 }
 
 const signOutFailure = (error) => {

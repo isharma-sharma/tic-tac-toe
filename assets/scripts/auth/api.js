@@ -5,7 +5,7 @@ const store = require('../store.js')
 const signUp = function (data) {
   console.log('data is', data)
   return $.ajax({
-    url: config.apiOrigin + '/sign-up/',
+    url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data
   })
@@ -21,6 +21,7 @@ const signIn = function (data) {
     .then((response) => {
       store.userToken = response.user.token
       store.userId = response.user.id
+      store.email = response.user.email
       return store
       // store.user.id = response.user.id
     })

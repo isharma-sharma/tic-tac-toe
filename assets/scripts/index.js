@@ -16,22 +16,21 @@ const authEvents = require('./auth/event.js')
 
 $(() => {
   authEvents.addHandlers()
-  // $('.box').on('dbclicK', function () {
-  //   alert('this square is selected')
-  // })
 })
 $('#game').hide()
 $(document).ready(function () {
   // On first load
-  $('#sign-in').show()
+  $('#sign-in').hide()
   $('#sign-up').hide()
   $('#game-board').hide()
   $('#change-password').hide()
   $('#show-game-panel').hide()
   $('#success').hide()
   $('#error').hide()
+  $('#changePassword-btn').hide()
+  $('#sign-out-btn').hide()
   // Login function
-  $('#login-btn').click(function() {
+  $('#login-btn').click(function () {
     $('#sign-in').show()
     $('#sign-up').hide()
     $('#game-board').hide()
@@ -39,9 +38,10 @@ $(document).ready(function () {
     $('#show-game-panel').hide()
     $('#success').hide()
     $('#error').hide()
+    $('.explain').hide()
   })
   // sign-up function
-  $('#sign-up-btn').click(function() {
+  $('#sign-up-btn').click(function () {
     $('#sign-up').show()
     $('#sign-in').hide()
     $('#game-board').hide()
@@ -49,6 +49,7 @@ $(document).ready(function () {
     $('#show-game-panel').hide()
     $('#success').hide()
     $('#error').hide()
+    $('.explain').hide()
   })
   $('#changePassword-btn').click(function () {
     $('#sign-up').hide()

@@ -53,21 +53,12 @@ const onShowGamesForUser = function (event) {
 }
 
 const reset = function () {
-  // for (let i = 0; i < store.gameArray.length; i++) {
   $('.box').text('')
-  // }
-  // api.createGame()
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
-  // const data = getFormFields(event.target)
   api.signOut()
-    // .then(() => {
-    //   delete store.userId
-    //   $('#game-board').hide()
-    //   return store
-    // })
     .then(ui.signOutSuccess)
    .catch(ui.signOutFailure)
 }
@@ -87,7 +78,6 @@ const onUpdateGame = function (event) {
       value = 'o'
     }
     $('.event.target').css('pointer-events', 'none')
-
   }
   const index = event.target.id
   $(event.target).text(value, index)
@@ -96,17 +86,6 @@ const onUpdateGame = function (event) {
     .then(ui.updateGameSuccess)
     .catch(ui.updateGamefailure)
 }
-
-  // console.log(.then)
-
-// const onUpdateGameBoard = function (event) {
-//   event.preventDefault()
-//   $(event.target).text(value, index)
-//   console.log(event.target)
-//   api.updateGameBoard(index, value, over)
-//     .then(ui.updateGameBoardsuccess)
-//     .catch(ui.updateGameBoardfailure)
-// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -122,5 +101,4 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers
-  // winner
 }

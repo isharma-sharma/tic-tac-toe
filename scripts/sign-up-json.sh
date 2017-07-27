@@ -9,5 +9,3 @@ curl "http://tic-tac-toe.wdibos.com/sign-up" \
     "password_confirmation" : "12345"
   }
 }'
-
-echo

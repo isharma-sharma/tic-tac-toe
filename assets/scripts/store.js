@@ -58,7 +58,6 @@ const winner = () => {
     console.log('anything5')
     store.over = false
     $('.Winner').text('NOBODY won!')
-    // $('.box').css('pointer-events', 'none')
   }
 }
 module.exports = {store,
