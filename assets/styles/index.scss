@@ -5,12 +5,22 @@ body {
   background-color: white;
   text-align: center;
   font: 20px arial, sans-serif;
+
+}
+#image {
+  background: url('./images/image1.png');
 }
 
+.explain{
+  font-size: 25px;
+}
 .cellheight {
   height: 100px;
   width: 150px;
   padding: 3px;
+}
+.navbar {
+  font-size: 25px;
 }
 
 .box {
@@ -29,6 +39,15 @@ body {
   position: relative;
 }
 
+p {
+  font-family: 'Tangerine', serif;
+  font-size: 48px;
+  color: navyblue;
+}
+
+
+
 #gamesList {
   word-wrap: break-word;
+  color:grey;
 }

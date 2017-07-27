@@ -27,6 +27,8 @@ const signInSuccess = (data) => {
   $('.form-control').val('')
   $('#changePassword-btn').show()
   $('#sign-out-btn').show()
+  $('#login-btn').hide()
+  $('#sign-up-btn').hide()
 }
 
 const signInFailure = (error) => {
@@ -47,9 +49,11 @@ const ChangepasswordFailure = (error) => {
   $('#success').hide()
   $('#error').show()
   $('#errmsg').text('change-password Failed!Please input proper data')
+  $('.form-control').val('')
 }
 
 const createGameSuccess = (data) => {
+  $('.form-control').val('')
   $('#gameId').text('GAME ID:' + store.gameId)
   $('.box').text('')
   store.store.gameArray = []
@@ -70,6 +74,7 @@ const createGamefailure = (error) => {
 }
 
 const getGameSuccess = (data) => {
+  $('.form-control').val('')
   $('#gamesList').text(store.gamesList)
   $('.Winner').text('')
 }
@@ -81,6 +86,7 @@ const getGameFailure = (error) => {
 }
 
 const showGameSuccess = (data) => {
+  $('.form-control').val('')
   $('#gameId').text('GAME ID:' + store.gameId)
   // populate the board with the stored val
   for (let i = 0; i < 9; i++) {
@@ -90,6 +96,7 @@ const showGameSuccess = (data) => {
   $('#success').show()
   $('#error').hide()
   $('#succmsg').text('Loaded game Id -' + store.gameId)
+  c
 }
 
 const showGameFailure = (error) => {
@@ -99,6 +106,7 @@ const showGameFailure = (error) => {
 }
 
 const updateGameSuccess = (data) => {
+  $('.form-control').val('')
   console.log('the winner')
   if (store.player === 'x') {
     store.player = 'o'

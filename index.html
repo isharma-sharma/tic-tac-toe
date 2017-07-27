@@ -5,6 +5,8 @@
   <title>My first page</title>
 
   <!-- Do not add `script` tags unless you know what you are doing -->
+  <link href='https://fonts.googleapis.com/css?family=Tangerine' rel ='stylesheet'>
+      <link href= 'https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation|3d-float' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -29,36 +31,41 @@
   </nav>
   <!-- End : Nav bar -->
   <!-- Main content-->
-  <div class="container">
+
 
     <!-- row -->
-    <div class="row">
-      <div class="col-sm-4">
-        <!-- Left Bar -->
 
-      </div>
+      <div class ='row col-md-12 explain'>
+                <h2>Challenge your friend with this version of the beloved game.</h2>
+                <h2>How many rounds will you win? </h2></br><h3>It’s time to find out in this fun online game.</h3>
+                <div id="image">
+      <img src ="./assets/styles/images/image1.png">
+        </div>
+              </div>
+
       <!-- Middle Col-->
 <!-- <div>
       Challenge your friend with this version of the beloved game.
       How many rounds will you win? It’s time to find out in this fun online game.
     </div> -->
         <!-- Alerts -->
+          <div class="container">
+          <div class="row">
+            <div class ="col-sm-4">
+            </div>
         <div class="alert alert-success alert-dismissable" id="success">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <span id="succmsg"></span>
         </div>
         <div class="alert alert-danger alert-dismissable" id="error">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Error!</strong> <span id="errmsg"></span>
+           <span id="errmsg"></span>
         </div>
 
         <!-- End Alerts -->
         <!-- Login form-->
         <div class="col-sm-4">
-          <div class ='row col-md-12 explain'>
-                Challenge your friend with this version of the beloved game.
-                How many rounds will you win? It’s time to find out in this fun online game.
-              </div>
+
         <form id="sign-in">
           <h2>Login</h2>
           <div class="form-group">
@@ -85,7 +92,7 @@
           </div>
           <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" name="credentials[password]" class="form-control" id="pwd">
+            <input type="password" name="credentials[password]" class="form-control" id="pd">
           </div>
           <div class="form-group">
             <label for="pwd">ConfirmPassword:</label>
@@ -127,7 +134,7 @@
               <div class="col-md-4">
 
                 <div id="show-gamebyid">
-                  <input type="text" name="gameId" value="">
+                  <input type="text" name="gameId" class="form-control" placeholder=" ENTER YOUR GAME-ID TO PLAY">
                 </div>
 
               </div>
@@ -148,14 +155,14 @@
             <div class="col-md-2"></div>
             <!---game id should be visible here-->
             <div class="col-md-8">
-              <p id="gameId"></p>
+              <h3 id="gameId"></h3>
             </div>
             <div class="col-md-2"></div>
           </div>
           <div class="row col-md-12">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-              <p class="Winner">
+              <p class="Winner" >
                 <!---pragrahh to show who win -->
               </p>
               <div id="game-board" class="container">
@@ -213,7 +220,7 @@
       &nbsp;
       <!-- Right Bar -->
     </div>
-  </div>
+  <!-- </div> -->
   <!--End of row -->
 
   <!-- End : main content-->

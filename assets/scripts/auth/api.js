@@ -25,7 +25,7 @@ const signIn = function (data) {
       return store
       // store.user.id = response.user.id
     })
-    .then(console.log)
+    .then(console.log(data))
 }
 
 const changePassword = function (data) {

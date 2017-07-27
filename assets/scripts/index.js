@@ -31,25 +31,25 @@ $(document).ready(function () {
   $('#sign-out-btn').hide()
   // Login function
   $('#login-btn').click(function () {
-    $('#sign-in').show()
+    $('#sign-in').show(500)
     $('#sign-up').hide()
     $('#game-board').hide()
     $('#change-password').hide()
     $('#show-game-panel').hide()
     $('#success').hide()
     $('#error').hide()
-    $('.explain').hide()
+    $('.explain').hide(500)
   })
   // sign-up function
   $('#sign-up-btn').click(function () {
-    $('#sign-up').show()
+    $('#sign-up').show(500)
     $('#sign-in').hide()
     $('#game-board').hide()
     $('#change-password').hide()
     $('#show-game-panel').hide()
     $('#success').hide()
     $('#error').hide()
-    $('.explain').hide()
+    $('.explain').hide(500)
   })
   $('#changePassword-btn').click(function () {
     $('#sign-up').hide()
