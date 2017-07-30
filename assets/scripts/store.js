@@ -18,7 +18,7 @@ const winner = () => {
     console.log('anything1')
     console.log(store.gameArray + ' ')
     store.over = true
-    $('.Winner').text('X won!')
+    $('.Winner').text('X WON!!!')
     $('.box').css('pointer-events', 'none')
 
   // Check for diaganol X matches
@@ -30,7 +30,7 @@ const winner = () => {
     console.log('anything2')
     console.log(store.gameArray + ' ')
     store.over = true
-    $('.Winner').text('X won!')
+    $('.Winner').text('X WON!!!')
     $('.box').css('pointer-events', 'none')
 
   // Check for vertical matches
@@ -42,7 +42,7 @@ const winner = () => {
     console.log('anything3')
     console.log(store.gameArray + ' ')
     store.over = true
-    $('.Winner').text('O won!')
+    $('.Winner').text('O WON!!!')
     $('.box').css('pointer-events', 'none')
   } else if (
     store.gameArray[0] + store.gameArray[3] + store.gameArray[6] === 'ooo' ||
@@ -52,12 +52,11 @@ const winner = () => {
     console.log('anything4')
     console.log(store.gameArray + ' ')
     store.over = true
-    $('.Winner').text('O won!')
+    $('.Winner').text('O WON!!!')
     $('.box').css('pointer-events', 'none')
   } else {
-    console.log('anything5')
     store.over = false
-    $('.Winner').text('NOBODY won!')
+    $('.Winner').text('NOBODY WON')
   }
 }
 module.exports = {store,

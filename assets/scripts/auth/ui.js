@@ -70,7 +70,7 @@ const createGameSuccess = (data) => {
 const createGamefailure = (error) => {
   $('#success').hide()
   $('#error').show()
-  $('#errmsg').text('Failed - ' + error)
+  $('#errmsg').text('Failed !! enter the Game-Id of previously played Game')
 }
 
 const getGameSuccess = (data) => {
@@ -82,7 +82,7 @@ const getGameSuccess = (data) => {
 const getGameFailure = (error) => {
   $('#success').hide()
   $('#error').show()
-  $('#errmsg').text('Failed - ' + error)
+  $('#errmsg').text('Failed -  enter the Game-Id of previously played Game')
 }
 
 const showGameSuccess = (data) => {
@@ -96,13 +96,13 @@ const showGameSuccess = (data) => {
   $('#success').show()
   $('#error').hide()
   $('#succmsg').text('Loaded game Id -' + store.gameId)
-  c
 }
 
 const showGameFailure = (error) => {
   $('#success').hide()
   $('#error').show()
-  $('#errmsg').text('Failed - ' + error.message)
+  $('#errmsg').text('Failed-- Enter The Game-Id Of Incomplete Game')
+  $('#game-board').hide()
 }
 
 const updateGameSuccess = (data) => {
@@ -115,6 +115,8 @@ const updateGameSuccess = (data) => {
     store.player = 'x'
   }
   store.winner()
+  // $('#get-game-by-id').show()
+  // $('#show-gamebyid').show()
 }
 
 const updateGameFailure = (error) => {

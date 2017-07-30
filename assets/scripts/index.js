@@ -64,6 +64,9 @@ $(document).ready(function () {
     $('#game-board').show()
     $('#success').hide()
     $('#error').hide()
+    // $('#video').hide()
+    // $('#get-game-by-id').hide()
+    // $('#show-gamebyid').hide()
   })
   $('#get-game-by-id').click(function () {
     $('#game-board').show()
