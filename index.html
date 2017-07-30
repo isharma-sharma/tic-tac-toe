@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TIC-TAC-TOE</title>
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <link href='https://fonts.googleapis.com/css?family=Tangerine' rel ='stylesheet'>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="sign-up-btn" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a id="login-btn" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a id="changePassword-btn" href="#"><span class="glyphicon glyphicon-log-in"></span> change-password</a></li>
+        <li><a id="sign-out-btn" href="#"><span class="glyphicon glyphicon-user"></span> Sign-out</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End : Nav bar -->
+  <!-- Main content-->
+
+
+    <!-- row -->
+
+      <div class ='row col-md-12 explain'>
+                <h2>Challenge your friend with this version of the beloved game.</h2>
+                <h2>How many rounds will you win? </h2></br><h3>It’s time to find out in this fun online game.</h3>
+                <div id="image">
+      <img src ="https://user-images.githubusercontent.com/27626771/28688261-41d4cac0-72df-11e7-9692-18f6a90338af.png" alt="image1">
+        </div>
+              </div>
+
+      <!-- Middle Col-->
+<!-- <div>
+      Challenge your friend with this version of the beloved game.
+      How many rounds will you win? It’s time to find out in this fun online game.
+    </div> -->
+        <!-- Alerts -->
+          <div class="container">
+          <div class="row">
+            <div class ="col-sm-4">
+            </div>
+        <div class="alert alert-success alert-dismissable" id="success">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <span id="succmsg"></span>
+        </div>
+        <div class="alert alert-danger alert-dismissable" id="error">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+           <span id="errmsg"></span>
+        </div>
+
+        <!-- End Alerts -->
+        <!-- Login form-->
+        <div class="col-sm-4">
+
+        <form id="sign-in">
+          <h2>Login</h2>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" name="credentials[email]" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="credentials[password]" class="form-control" id="pwd">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+        <!-- End :Login form-->
+
+        <!-- sign-up form-->
+
+        <form id="sign-up">
+          <h2>Signup</h2>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" name="credentials[email]" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="credentials[password]" class="form-control" id="pd">
+          </div>
+          <div class="form-group">
+            <label for="pwd">ConfirmPassword:</label>
+            <input type="password" name="credentials[password_confirmation]" class="form-control" id="pwd">
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+        </form>
+        <!-- End :Signup form-->
+        <!---change password form begins here -->
+        <form id="change-password">
+          <h2>CHANGE PASSWORD</h2>
+
+          <div class="form-group">
+            <label for="pwd"> Old-Password:</label>
+            <input type="password" name="passwords[old]" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+            <label for="pwd">New-Password:</label>
+            <input type="password" name="passwords[new]" class="form-control" id="pwd">
+          </div>
+          <button type="submit" class="btn btn-info btn-block ">Submit</button>
+        </form>
+      </div>
+        <!-- change passwordform ends here -->
+        <!--signOut button-->
+
+        <!--button signout done above -->
+        <div id="show-game-panel">
+          <div class="row col-md-12">
+            <!-- <div class="col-md-4"><b>User Id : </b></div> -->
+            <!-- <div class="col-md-8" id="userId"></div> -->
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-8"><b>Id's of game you played</b>
+          <h4 id="gamesList"></h4></div>
+          </div>
+        </br></br></br>
+          <div class="row col-md-12">
+
+            <form id="show-game-id">
+              <div class="col-md-4">
+
+                <div id="show-gamebyid">
+                  <input type="text" name="gameId" class="form-control" placeholder=" ENTER GAME-ID OF INCOMPLETE GAME">
+
+
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" id="get-game-by-id"> <span class="glyphicon glyphicon-user"></span> Play Game By Id</button>
+
+              </div>
+            </div>
+            </form>
+            <div class="col-md-4">
+              <!--show button to show game grid starts-->
+              <button type="click" class="btn btn-primary" id="show-game"> <span class="glyphicon glyphicon-ok"></span> New Game </button>
+              <!--show button to show game grid ends-->
+              <!--show new game-->
+
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-2"></div>
+            <!---game id should be visible here-->
+            <div class="col-md-8">
+              <h3 id="gameId"></h3>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <div class="row col-md-12">
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-8">
+              <p class="Winner" >
+                <!---pragrahh to show who win -->
+              </p>
+              <div id="game-board" class="container">
+                <fieldset>
+
+                  <div class="row">
+                    <div id="0" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="1" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="2" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="3" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="4" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="5" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="6" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="7" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                    <div id="8" class="col-xs-4 col-md-4 box cellheight">
+                      <p></p>
+                    </div>
+                  </div>
+
+                </fieldset>
+                <!--grid of tic-tac-toe ends here -->
+              </div>
+            </div>
+            <div class="col-md-4" id="video">
+           <p>Want to learn before playing take a look on the vedio</p>
+
+           <iframe width="500" height="300" src="https://www.youtube.com/embed/5n2aQ3UQu9Y" frameborder="0" allowfullscreen>
+           </iframe>
+
+
+         </div>
+
+          <!--grid of tic-tac-toe starts here-->
+          <!-- <div id="video">
+         <p>Want to learn before playing take a look on the vedio</p>
+
+         <iframe width="500" height="300" src="https://www.youtube.com/embed/5n2aQ3UQu9Y" frameborder="0" allowfullscreen>
+         </iframe>
+
+
+          </div> -->
+        </div>
+
+
+
+      </div>
+    </div>
+    <!--End of midle div -->
+    <!-- <div class="col-md-2">
+      &nbsp;
+      <!-- Right Bar -->
+    <!-- </div> -->
+  <!-- </div> -->
+  <!--End of row -->
+
+  <!-- End : main content-->
+</body>
+
+</html>
