@@ -6,18 +6,21 @@ body {
   text-align: center;
   font: 20px arial, sans-serif;
 }
+
 #image {
   background: url('./images/image1.png');
 }
 
-.explain{
+.explain {
   font-size: 25px;
 }
+
 .cellheight {
   height: 100px;
   width: 100px;
   padding: 3px;
 }
+
 .navbar {
   font-size: 25px;
 }
@@ -29,8 +32,8 @@ body {
   font-size: 100px;
   font-family: fantasy;
   font-weight: bold;
-  height:150px;
-  width:150px;
+  height: 110px;
+  width: 110px;
 }
 
 #game {
@@ -47,24 +50,20 @@ p {
   font-size: 48px;
   color: navyblue;
 }
-#gameboard
-{
-  height: 280px;
-  width: 280px;
+
+#gameboard {
+  height: 180px;
+  width: 180px;
   float: left;
 }
-#video{
-  float:right;
+
+#video {
+  float: right;
 }
-.clearfix:after {
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
+
+
 
 #gamesList {
   word-wrap: break-word;
-  color:grey;
+  color: grey;
 }
